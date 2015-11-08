@@ -27,3 +27,36 @@ template '/var/www/html/index.html' do
 	source 'index.html.erb'
 	mode "0644"
 end
+
+file '/var/www/html/index.html' do
+	action :delete
+end
+
+# install git
+package 'git' do
+	action :install
+end
+
+# uninstall git
+#package 'git' do
+#	action :remove
+#end
+
+package 'java-1.7.0-openjdk' do
+	action :install
+end
+
+execute 'jenkins-yum adding' do
+	command <<-EOF
+	 sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo;
+	 sudo rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key
+	EOF
+end
+
+package 'jenkins' do
+	action :install
+end
+
+service 'jenkins' do
+	action [:enable, :start]
+end 
