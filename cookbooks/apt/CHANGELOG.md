@@ -1,13 +1,15 @@
-apt CHANGELOG
-=============
+## v1.4.4:
 
-This file is used to list changes made in each version of the apt cookbook.
+* [COOK-1229] - Allow cacher IP to be set manually in non-Chef Solo
+  environments
+* Immediately update apt-cache when sources.list file is dropped off
 
-0.1.0
------
-- [your_name] - Initial release of apt
+## v1.4.2:
 
-- - -
-Check the [Markdown Syntax Guide](http://daringfireball.net/projects/markdown/syntax) for help with Markdown.
+* [COOK-1155] - LWRP for apt pinning
 
-The [Github Flavored Markdown page](http://github.github.com/github-flavored-markdown/) describes the differences between markdown on github and standard markdown.
+## v1.4.0:
+
+* [COOK-889] - overwrite existing repo source files
+* [COOK-921] - optionally use cookbook\_file or remote\_file for key
+* [COOK-1032] - fixes problem with apt repository key installation
