@@ -60,3 +60,16 @@ end
 service 'jenkins' do
 	action [:enable, :start]
 end 
+
+execute 'Maven Install' do
+	command <<-EOF
+		cd /home/vagrant/;
+		pwd;
+		wget http://mirror.olnevhost.net/pub/apache/maven/maven-3/3.0.5/binaries/apache-maven-3.0.5-bin.tar.gz;
+		tar -xzvf apache-maven-3.0.5-bin.tar.gz;
+		chown vagrant:vagrant apache-maven-3.0.5;
+		export PATH=$PATH:/home/vagrant/apache-maven-3.0.5/bin;
+		source ~/.bashrc
+	EOF
+end
+
